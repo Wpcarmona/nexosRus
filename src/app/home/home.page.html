@@ -1,20 +1,37 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content fullscreen class="ion-padding" scroll-y="false">
+    <ion-slides pager="true">
+        <ion-slide>
+            <div class="slide">
+                <img src="../../assets/453-savings-pig-outline.gif" />
+                <h2>Bienvenido</h2>
+                <p>
+                    <b>MyFirstBank</b> Es una aplicacion diseñada para que las personas puedan interactuar mas facilmente con sus cuentas de ahorro y cuentas corrientes.
+                </p>
+            </div>
+        </ion-slide>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+        <ion-slide>
+            <img src="../../assets/955-demand-outline.gif" />
+            <h2>Cuentas de terceros</h2>
+            <p>
+                <b>con MyFirstBank</b> maneje de forma clara y facil todas las cuentas de terceros, ya sea añadiendolas, creandolas entre otros.
+            </p>
+        </ion-slide>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+        <ion-slide>
+            <img src="../../assets/1335-qr-code-outline.gif" />
+            <h2>Codgios QR</h2>
+            <p>
+                <b>Con MyFirstBank</b> podra generar codigos QR tanto para enviar dinero entre cuentas corrientes y de ahorro como tambien escaenar codigos QR para recibir.
+            </p>
+        </ion-slide>
+
+        <ion-slide>
+            <img src="../../assets/1103-confetti-outline.gif" />
+            <h2>Listo para comenzar ?</h2>
+            <ion-button fill="clear" (click)="Login()">Continuar
+                <ion-icon slot="end" name="arrow-forward"></ion-icon>
+            </ion-button>
+        </ion-slide>
+    </ion-slides>
 </ion-content>

@@ -1,0 +1,86 @@
+<ion-header translucent>
+    <ion-toolbar>
+        <ion-title>escanear el codigo QR </ion-title>
+        <ion-buttons slot="end">
+            <ion-button (click)="dismissModal()">Cerrar</ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <div>
+        <ion-button shape="round" (click)="ReadCode()" fill="solid">Leer codigo QR</ion-button>
+    </div>
+
+    <ion-card *ngIf="datoscaneado">
+        <ion-card-header>
+            <ion-label>
+                <h1>Valor transferido:<b>${{ datoscaneado["text"] }}</b></h1>
+            </ion-label>
+        </ion-card-header>
+    </ion-card>
+
+    <ion-card *ngIf="datoscaneado">
+        <ion-card-header>
+            <ion-label>
+                <h1>A donde quiere tranferir</h1>
+            </ion-label>
+        </ion-card-header>
+        <ion-segment color="secondary" value="segment1" (ionChange)="segmentChanged($event)">
+            <ion-segment-button value="segment1">
+                <ion-label>Cuenta corrientes</ion-label>
+            </ion-segment-button>
+            <ion-segment-button value="segment2">
+                <ion-label>Cuentas de ahorro</ion-label>
+            </ion-segment-button>
+        </ion-segment>
+        <div scrolly="true" style="max-height: 60%">
+            <div *ngIf="segment1">
+                <ion-card *ngFor="let cuentaCorriente of cuentaCorriente">
+                    <ion-card-header>
+                        <ion-label>
+                            <h1>
+                                Cuenta corriente
+                                <div class="text-right">
+                                    <ion-icon name="arrow-forward"></ion-icon>
+                                </div>
+                            </h1>
+                            <h5>Corriente: {{cuentaCorriente.cuenta}}</h5>
+                        </ion-label>
+                    </ion-card-header>
+                    <div class="text-right">
+                        <ion-card-content>
+                            Saldo disponible: $ {{cuentaCorriente.saldo}}
+                        </ion-card-content>
+                    </div>
+                </ion-card>
+            </div>
+        </div>
+        <div scrolly="true" style="max-height: 60%">
+            <div *ngIf="segment2">
+                <ion-card *ngFor="let cuentaAhorro of cuentaAhorro">
+                    <ion-card-header>
+                        <ion-label>
+                            <h1>
+                                Cuenta de ahorro
+                                <div class="text-right">
+                                    <ion-icon name="arrow-forward"></ion-icon>
+                                </div>
+                            </h1>
+                            <h5>Corriente: {{cuentaAhorro.cuenta}}</h5>
+                        </ion-label>
+                    </ion-card-header>
+                    <div class="text-right">
+                        <ion-card-content>
+                            Saldo disponible: $ {{cuentaAhorro.saldo}}
+                        </ion-card-content>
+                    </div>
+                </ion-card>
+            </div>
+        </div>
+    </ion-card>
+
+
+
+</ion-content>
